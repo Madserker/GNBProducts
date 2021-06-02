@@ -8,11 +8,11 @@ class GNBApi {
         case transactions = "transactions.json"
     }
     
-    public static func getRequest(endPoint: EndPoint, completion: @escaping (Result<Data, Error>) -> Void) {
+    public static func getRequest(endPoint: EndPoint, completion: @escaping (Result<Data, GNBError>) -> Void) {
         if let url = URL(string: "\(GNBApi.host)/\(endPoint.rawValue)") {
             let task = URLSession.shared.dataTask(with: url) { (data, resonse, error) in
                 if let error = error {
-                    completion(.failure(error))
+                    completion(.failure(GNBError(.unknown, error.localizedDescription)))
                     return
                 }
                 guard let data = data else {
@@ -34,11 +34,13 @@ class GNBApi {
 
 class GNBError: Error {
     let type: ErrorType
+    let description: String
     
-    init(_ type: ErrorType) {
+    init(_ type: ErrorType, _ description: String = "") {
         self.type = type
+        self.description = description
     }
-    enum ErrorType {
+    enum ErrorType: String {
         case parseFailed
         case invalidUrl
         case emptyData

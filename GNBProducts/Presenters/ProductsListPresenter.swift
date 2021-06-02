@@ -1,11 +1,11 @@
 import Foundation
 
 class ProductsListPresenter {
-    private let apiService: GNBApi
+    private let apiService: ApiService
     weak private var productsListViewDelegate: ProductsListViewDelegate?
     
     init() {
-        self.apiService = GNBApi()
+        self.apiService = ApiService()
     }
     
     func setViewDelegate(productsListViewDelegate: ProductsListViewDelegate?) {
@@ -14,6 +14,16 @@ class ProductsListPresenter {
     
     func getProductsList() {
         productsListViewDelegate?.showLoadingView()
+        apiService.fetchTransactions() { result in
+            switch result {
+            case .success(let data):
+                print(data)
+            case .failure(let error):
+                error
+                print(error)
+            }
+            self.productsListViewDelegate?.hideLoadingView()
+        }
     }
     
     func productSelected(_ product: Product) {
