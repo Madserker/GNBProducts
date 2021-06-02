@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE35D5E42667F97F0067CA99 /* ApiModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE35D5E32667F97F0067CA99 /* ApiModels.swift */; };
 		CE7C84782667E2CB003FC3D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C84772667E2CB003FC3D9 /* AppDelegate.swift */; };
 		CE7C847A2667E2CB003FC3D9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C84792667E2CB003FC3D9 /* SceneDelegate.swift */; };
 		CE7C847C2667E2CB003FC3D9 /* ProductsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C847B2667E2CB003FC3D9 /* ProductsListViewController.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE35D5E32667F97F0067CA99 /* ApiModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiModels.swift; sourceTree = "<group>"; };
 		CE7C84742667E2CB003FC3D9 /* GNBProducts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GNBProducts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE7C84772667E2CB003FC3D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE7C84792667E2CB003FC3D9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -150,10 +152,10 @@
 		CE7C84AA2667E3F6003FC3D9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				CE7C84E32667F1C0003FC3D9 /* ApiModels */,
 				CE7C84CC2667EC40003FC3D9 /* Product.swift */,
 				CE7C84D12667EE42003FC3D9 /* Transaction.swift */,
 				CE7C84D62667EF48003FC3D9 /* ConversionRate.swift */,
+				CE35D5E32667F97F0067CA99 /* ApiModels.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -191,13 +193,6 @@
 				CE7C84B82667EA07003FC3D9 /* ProductCollectionViewCell.xib */,
 			);
 			path = Cells;
-			sourceTree = "<group>";
-		};
-		CE7C84E32667F1C0003FC3D9 /* ApiModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ApiModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -341,6 +336,7 @@
 				CE7C84AF2667E448003FC3D9 /* GNBApi.swift in Sources */,
 				CE7C847A2667E2CB003FC3D9 /* SceneDelegate.swift in Sources */,
 				CE7C84CD2667EC40003FC3D9 /* Product.swift in Sources */,
+				CE35D5E42667F97F0067CA99 /* ApiModels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
