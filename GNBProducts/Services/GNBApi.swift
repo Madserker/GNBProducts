@@ -11,6 +11,10 @@ class GNBApi {
     public static func getRequest(endPoint: EndPoint, completion: @escaping (Result<Data, Error>) -> Void) {
         if let url = URL(string: "\(GNBApi.host)/\(endPoint.rawValue)") {
             let task = URLSession.shared.dataTask(with: url) { (data, resonse, error) in
+                if let error = error {
+                    completion(.failure(error))
+                    return
+                }
                 guard let data = data else {
                     completion(.failure(GNBError(.dataIsNil)))
                     return
@@ -39,5 +43,6 @@ class GNBError: Error {
         case invalidUrl
         case emptyData
         case dataIsNil
+        case unknown
     }
 }
