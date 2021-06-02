@@ -4,7 +4,7 @@ class GNBApi {
     public static let host = "http://quiet-stone2094.herokuapp.com"
     
     enum EndPoint: String {
-        case rateConversions = "rates.json"
+        case conversionRates = "rates.json"
         case transactions = "transactions.json"
     }
     
