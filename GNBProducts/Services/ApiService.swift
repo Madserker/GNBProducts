@@ -2,7 +2,7 @@ import Foundation
 
 class ApiService {
     
-    func fetchTransactions(completion: @escaping ([Transaction]) -> Void) {
+    func fetchTransactions(completion: @escaping (Result<[Transaction], Error>) -> Void) {
         GNBApi.getRequest(endPoint: .transactions) { data in
             do {
                 let transactionsApi: ApiTransactions = try JSONDecoder().decode(ApiTransactions.self, from: data)
@@ -12,14 +12,14 @@ class ApiService {
                         amount: Double($0.amount) ?? 0,
                         currency: $0.currency)
                 }
-                completion(transactions)
+                completion(.success(transactions))
             } catch {
-                print(error)
+                completion(.failure(GNBError(.parseFailed)))
             }
         }
     }
     
-    func fetchConversionRates(completion: @escaping ([ConversionRate]) -> Void) {
+    func fetchConversionRates(completion: @escaping (Result<[ConversionRate], GNBError>) -> Void) {
         GNBApi.getRequest(endPoint: .conversionRates) { data in
             do {
                 let conversionRatesApi: ApiConversionRates = try JSONDecoder().decode(ApiConversionRates.self, from: data)
@@ -29,9 +29,9 @@ class ApiService {
                         to: $0.to,
                         rate: Double($0.rate) ?? 0)
                 }
-                completion(conversions)
+                completion(.success(conversions))
             } catch {
-                print(error)
+                completion(.failure(GNBError(.parseFailed)))
             }
         }
     }
