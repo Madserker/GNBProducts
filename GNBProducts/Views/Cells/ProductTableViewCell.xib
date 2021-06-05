@@ -18,16 +18,16 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eFU-qd-bP4" userLabel="GeneralView">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="50" y="10" width="220" height="24"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fYi-9N-1hC">
-                                <rect key="frame" x="139.5" y="12" width="41.5" height="20.5"/>
+                                <rect key="frame" x="89.5" y="2" width="41.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemGray3Color"/>
+                        <color key="backgroundColor" systemColor="systemGray4Color"/>
                         <constraints>
                             <constraint firstItem="fYi-9N-1hC" firstAttribute="centerX" secondItem="eFU-qd-bP4" secondAttribute="centerX" id="VE3-19-Zrh"/>
                             <constraint firstItem="fYi-9N-1hC" firstAttribute="centerY" secondItem="eFU-qd-bP4" secondAttribute="centerY" id="osc-ke-mgF"/>
@@ -35,10 +35,10 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="eFU-qd-bP4" secondAttribute="bottom" id="3C1-NN-3Vn"/>
-                    <constraint firstItem="eFU-qd-bP4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="CBI-L5-LxW"/>
-                    <constraint firstAttribute="trailing" secondItem="eFU-qd-bP4" secondAttribute="trailing" id="Eib-2e-0qr"/>
-                    <constraint firstItem="eFU-qd-bP4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="wGo-7e-HzI"/>
+                    <constraint firstItem="eFU-qd-bP4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="1OM-9l-G1y"/>
+                    <constraint firstItem="eFU-qd-bP4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="50" id="Oeh-z5-o1E"/>
+                    <constraint firstAttribute="trailing" secondItem="eFU-qd-bP4" secondAttribute="trailing" constant="50" id="PIm-IC-6ht"/>
+                    <constraint firstAttribute="bottom" secondItem="eFU-qd-bP4" secondAttribute="bottom" constant="10" id="vJX-bl-psn"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -47,12 +47,12 @@
                 <outlet property="generalView" destination="eFU-qd-bP4" id="2EM-ch-G69"/>
                 <outlet property="productIdLabel" destination="fYi-9N-1hC" id="6XR-Vc-ixn"/>
             </connections>
-            <point key="canvasLocation" x="-223" y="78"/>
+            <point key="canvasLocation" x="-774" y="-135"/>
         </tableViewCell>
     </objects>
     <resources>
-        <systemColor name="systemGray3Color">
-            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -9,6 +9,10 @@ class CurrencyService {
         var currentCurrency = currencyFrom
         var parsedAmount = amount
 
+        if selectedCurrency == currencyFrom {
+            return amount
+        }
+        
         while(!found) {
             for conversion in conversionRates {
                 if conversion.from == currentCurrency && conversion.to == selectedCurrency {
@@ -19,10 +23,19 @@ class CurrencyService {
             }
             if (!found) {
                 for conversion in conversionRates {
-                    if conversion.from == currentCurrency && usedConversions.filter({$0.from == conversion.from && $0.to == conversion.to}).first == nil {
+                    if conversion.from == currentCurrency && usedConversions.filter({
+                        ($0.from == conversion.from &&
+                        $0.to == conversion.to) ||
+                        ($0.from == conversion.to &&
+                        $0.to == conversion.from)
+                    }).first == nil {
                         usedConversions.append(conversion)
                         parsedAmount *= conversion.rate
                         currentCurrency = conversion.to
+                        
+                        if conversion.to == selectedCurrency {
+                            found = true
+                        }
                     }
                 }
             }

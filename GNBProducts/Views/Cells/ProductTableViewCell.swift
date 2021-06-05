@@ -7,10 +7,12 @@ class ProductTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        setupUI()
     }
     
     private func setupUI() {
-        productIdLabel.font = UIFont(name: productIdLabel.font.fontName, size: 25)
+        generalView.layer.cornerRadius = 8
+        generalView.layer.masksToBounds = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
