@@ -24,7 +24,7 @@ class GNBApi {
                     return
                 }
                 if let httpResponse = response as? HTTPURLResponse {
-                    guard 200...299 ~= httpResponse.statusCode else {
+                    guard 100...399 ~= httpResponse.statusCode else {
                         completion(.failure(GNBError(.badStatusCode)))
                         return
                     }

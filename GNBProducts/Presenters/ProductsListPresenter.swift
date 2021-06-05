@@ -12,24 +12,49 @@ class ProductsListPresenter {
         self.productsListViewDelegate = productsListViewDelegate
     }
     
-    func getProductsList(completion: @escaping ([Product]) -> Void) {
+    func getProductsList() {
         var productsList: [Product] = []
         productsListViewDelegate?.showLoadingView()
         apiService.fetchTransactions() { result in
             switch result {
             case .success(let data):
-                for transaction in data {
-                   print(transaction)
+                self.getConversionRates() { conversionRates in
+                    if (conversionRates.count > 0) {
+                        for transaction in data {
+                            let currentProduct = productsList.filter({$0.id == transaction.productId}).first
+                            let amount = CurrencyService.parseTransactionAmount(amount: transaction.amount, currencyFrom: transaction.currency, conversionRates: conversionRates)
+
+                            if let safeCurrentProduct = currentProduct {
+                                safeCurrentProduct.transactions.append(amount)
+                            } else {
+                                productsList.append(Product(id: transaction.productId, transactions: [amount]))
+                            }
+                        }
+                        self.productsListViewDelegate?.showProductsList(products: productsList)
+                    } else {
+                        self.productsListViewDelegate?.showErrorView()
+                    }
                 }
             case .failure(let error):
-                print(error)
+                switch error.type {
+                case .emptyData:
+                    self.productsListViewDelegate?.showErrorView()
+                default:
+                    self.productsListViewDelegate?.showErrorView()
+                }
             }
             self.productsListViewDelegate?.hideLoadingView()
         }
     }
     
-    func productSelected(_ product: Product) {
-        //get product transactions
+    private func getConversionRates(completion: @escaping ([ConversionRate]) -> Void) {
+        apiService.fetchConversionRates() { result in
+            switch result {
+            case .success(let data):
+                completion(data)
+            case .failure:
+                completion([])
+            }
+        }
     }
-    
 }

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		CE35D5E42667F97F0067CA99 /* ApiModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE35D5E32667F97F0067CA99 /* ApiModels.swift */; };
+		CE741F97266B8DFF00D195F9 /* CurrencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE741F96266B8DFF00D195F9 /* CurrencyService.swift */; };
+		CE741FA6266B912F00D195F9 /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE741FA4266B912F00D195F9 /* ProductTableViewCell.swift */; };
+		CE741FA7266B912F00D195F9 /* ProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE741FA5266B912F00D195F9 /* ProductTableViewCell.xib */; };
 		CE7C84782667E2CB003FC3D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C84772667E2CB003FC3D9 /* AppDelegate.swift */; };
 		CE7C847A2667E2CB003FC3D9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C84792667E2CB003FC3D9 /* SceneDelegate.swift */; };
 		CE7C847C2667E2CB003FC3D9 /* ProductsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C847B2667E2CB003FC3D9 /* ProductsListViewController.swift */; };
@@ -17,13 +20,13 @@
 		CE7C848F2667E2CD003FC3D9 /* GNBProductsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C848E2667E2CD003FC3D9 /* GNBProductsTests.swift */; };
 		CE7C849A2667E2CD003FC3D9 /* GNBProductsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C84992667E2CD003FC3D9 /* GNBProductsUITests.swift */; };
 		CE7C84AF2667E448003FC3D9 /* GNBApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C84AE2667E448003FC3D9 /* GNBApi.swift */; };
-		CE7C84B92667EA07003FC3D9 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C84B72667EA07003FC3D9 /* ProductCollectionViewCell.swift */; };
-		CE7C84BA2667EA07003FC3D9 /* ProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE7C84B82667EA07003FC3D9 /* ProductCollectionViewCell.xib */; };
 		CE7C84C82667EBB6003FC3D9 /* ProductsListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C84C72667EBB6003FC3D9 /* ProductsListPresenter.swift */; };
 		CE7C84CD2667EC40003FC3D9 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C84CC2667EC40003FC3D9 /* Product.swift */; };
 		CE7C84D22667EE42003FC3D9 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C84D12667EE42003FC3D9 /* Transaction.swift */; };
 		CE7C84D72667EF48003FC3D9 /* ConversionRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C84D62667EF48003FC3D9 /* ConversionRate.swift */; };
 		CE7C84F32667F5B7003FC3D9 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C84F22667F5B7003FC3D9 /* ApiService.swift */; };
+		CED28516266B9F5E00488AE2 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED28514266B9F5E00488AE2 /* TransactionTableViewCell.swift */; };
+		CED28517266B9F5E00488AE2 /* TransactionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED28515266B9F5E00488AE2 /* TransactionTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +48,9 @@
 
 /* Begin PBXFileReference section */
 		CE35D5E32667F97F0067CA99 /* ApiModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiModels.swift; sourceTree = "<group>"; };
+		CE741F96266B8DFF00D195F9 /* CurrencyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyService.swift; sourceTree = "<group>"; };
+		CE741FA4266B912F00D195F9 /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
+		CE741FA5266B912F00D195F9 /* ProductTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductTableViewCell.xib; sourceTree = "<group>"; };
 		CE7C84742667E2CB003FC3D9 /* GNBProducts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GNBProducts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE7C84772667E2CB003FC3D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE7C84792667E2CB003FC3D9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,13 +66,13 @@
 		CE7C84992667E2CD003FC3D9 /* GNBProductsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GNBProductsUITests.swift; sourceTree = "<group>"; };
 		CE7C849B2667E2CD003FC3D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE7C84AE2667E448003FC3D9 /* GNBApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GNBApi.swift; sourceTree = "<group>"; };
-		CE7C84B72667EA07003FC3D9 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
-		CE7C84B82667EA07003FC3D9 /* ProductCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCollectionViewCell.xib; sourceTree = "<group>"; };
 		CE7C84C72667EBB6003FC3D9 /* ProductsListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsListPresenter.swift; sourceTree = "<group>"; };
 		CE7C84CC2667EC40003FC3D9 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		CE7C84D12667EE42003FC3D9 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		CE7C84D62667EF48003FC3D9 /* ConversionRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionRate.swift; sourceTree = "<group>"; };
 		CE7C84F22667F5B7003FC3D9 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		CED28514266B9F5E00488AE2 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
+		CED28515266B9F5E00488AE2 /* TransactionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +171,7 @@
 			children = (
 				CE7C84AE2667E448003FC3D9 /* GNBApi.swift */,
 				CE7C84F22667F5B7003FC3D9 /* ApiService.swift */,
+				CE741F96266B8DFF00D195F9 /* CurrencyService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -189,8 +196,10 @@
 		CE7C84B62667E9D6003FC3D9 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				CE7C84B72667EA07003FC3D9 /* ProductCollectionViewCell.swift */,
-				CE7C84B82667EA07003FC3D9 /* ProductCollectionViewCell.xib */,
+				CE741FA4266B912F00D195F9 /* ProductTableViewCell.swift */,
+				CE741FA5266B912F00D195F9 /* ProductTableViewCell.xib */,
+				CED28514266B9F5E00488AE2 /* TransactionTableViewCell.swift */,
+				CED28515266B9F5E00488AE2 /* TransactionTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -298,9 +307,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CED28517266B9F5E00488AE2 /* TransactionTableViewCell.xib in Resources */,
 				CE7C84842667E2CD003FC3D9 /* LaunchScreen.storyboard in Resources */,
+				CE741FA7266B912F00D195F9 /* ProductTableViewCell.xib in Resources */,
 				CE7C84812667E2CD003FC3D9 /* Assets.xcassets in Resources */,
-				CE7C84BA2667EA07003FC3D9 /* ProductCollectionViewCell.xib in Resources */,
 				CE7C847F2667E2CB003FC3D9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -331,9 +341,11 @@
 				CE7C84D22667EE42003FC3D9 /* Transaction.swift in Sources */,
 				CE7C84D72667EF48003FC3D9 /* ConversionRate.swift in Sources */,
 				CE7C84782667E2CB003FC3D9 /* AppDelegate.swift in Sources */,
-				CE7C84B92667EA07003FC3D9 /* ProductCollectionViewCell.swift in Sources */,
+				CE741FA6266B912F00D195F9 /* ProductTableViewCell.swift in Sources */,
+				CED28516266B9F5E00488AE2 /* TransactionTableViewCell.swift in Sources */,
 				CE7C84F32667F5B7003FC3D9 /* ApiService.swift in Sources */,
 				CE7C84AF2667E448003FC3D9 /* GNBApi.swift in Sources */,
+				CE741F97266B8DFF00D195F9 /* CurrencyService.swift in Sources */,
 				CE7C847A2667E2CB003FC3D9 /* SceneDelegate.swift in Sources */,
 				CE7C84CD2667EC40003FC3D9 /* Product.swift in Sources */,
 				CE35D5E42667F97F0067CA99 /* ApiModels.swift in Sources */,

@@ -1,11 +1,11 @@
 import Foundation
 
 class Product {
-    var productId: String
-    var transactions: [Transaction]
+    var id: String
+    var transactions: [Double]
     
-    init(productId: String, transactions: [Transaction]) {
-        self.productId = productId
+    init(id: String, transactions: [Double]) {
+        self.id = id
         self.transactions = transactions
     }
 }
