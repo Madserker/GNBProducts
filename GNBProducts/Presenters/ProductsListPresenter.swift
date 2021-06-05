@@ -12,14 +12,16 @@ class ProductsListPresenter {
         self.productsListViewDelegate = productsListViewDelegate
     }
     
-    func getProductsList() {
+    func getProductsList(completion: @escaping ([Product]) -> Void) {
+        var productsList: [Product] = []
         productsListViewDelegate?.showLoadingView()
         apiService.fetchTransactions() { result in
             switch result {
             case .success(let data):
-                print(data)
+                for transaction in data {
+                   print(transaction)
+                }
             case .failure(let error):
-                error
                 print(error)
             }
             self.productsListViewDelegate?.hideLoadingView()

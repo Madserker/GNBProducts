@@ -1,14 +1,14 @@
 import Foundation
 
 // MARK: - ApiTransactions
-struct ApiTransactionElement: Codable {
+struct ApiTransactionElement: Decodable {
     let sku, amount, currency: String
 }
 
 typealias ApiTransactions = [ApiTransactionElement]
 
 // MARK: - ApiConversionRates
-struct ApiConversionRateElement: Codable {
+struct ApiConversionRateElement: Decodable {
     let from, to, rate: String
 }
 

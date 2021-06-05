@@ -18,6 +18,10 @@ class ProductsListViewController: UIViewController {
         super.viewDidLoad()
         
         productsListPresenter.setViewDelegate(productsListViewDelegate: self)
+        productsListPresenter.getProductsList() { products in
+            print(products)
+            
+        }
     }
 }
 
