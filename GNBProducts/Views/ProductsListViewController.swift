@@ -144,11 +144,9 @@ extension ProductsListViewController: UITableViewDelegate, UITableViewDataSource
                 for amount in sections[indexPath.section].transactions {
                     total += amount
                 }
-                let roundedTotal = Double(round(100*total)/100)
-                cell?.generateCell(amount: "TOTAL: \(roundedTotal) \(CurrencyService.selectedCurrency)", finalCell: true)
+                cell?.generateCell(amount: "TOTAL: \(total.format(f: ".2")) \(CurrencyService.selectedCurrency)", finalCell: true)
             } else {
-                let roundedAmount = Double(round(100*sections[indexPath.section].transactions[indexPath.row - 1])/100)
-                cell?.generateCell(amount: "+ \(roundedAmount) \(CurrencyService.selectedCurrency)")
+                cell?.generateCell(amount: "+ \(sections[indexPath.section].transactions[indexPath.row - 1].format(f: ".2")) \(CurrencyService.selectedCurrency)")
             }
             
             return cell ?? UITableViewCell()

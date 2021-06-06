@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE0FC132266D31CC00F499A8 /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0FC131266D31CC00F499A8 /* DoubleExtension.swift */; };
 		CE35D5E42667F97F0067CA99 /* ApiModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE35D5E32667F97F0067CA99 /* ApiModels.swift */; };
 		CE741F97266B8DFF00D195F9 /* CurrencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE741F96266B8DFF00D195F9 /* CurrencyService.swift */; };
 		CE741FA6266B912F00D195F9 /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE741FA4266B912F00D195F9 /* ProductTableViewCell.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE0FC131266D31CC00F499A8 /* DoubleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
 		CE35D5E32667F97F0067CA99 /* ApiModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiModels.swift; sourceTree = "<group>"; };
 		CE741F96266B8DFF00D195F9 /* CurrencyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyService.swift; sourceTree = "<group>"; };
 		CE741FA4266B912F00D195F9 /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
@@ -100,6 +102,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE0FC12F266D31AD00F499A8 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				CE0FC131266D31CC00F499A8 /* DoubleExtension.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		CE7C846B2667E2CB003FC3D9 = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +133,7 @@
 		CE7C84762667E2CB003FC3D9 /* GNBProducts */ = {
 			isa = PBXGroup;
 			children = (
+				CE0FC12F266D31AD00F499A8 /* Utils */,
 				CE7C84AD2667E41B003FC3D9 /* Views */,
 				CE7C84AC2667E412003FC3D9 /* Presenters */,
 				CE7C84AA2667E3F6003FC3D9 /* Models */,
@@ -348,6 +359,7 @@
 				CE741F97266B8DFF00D195F9 /* CurrencyService.swift in Sources */,
 				CE7C847A2667E2CB003FC3D9 /* SceneDelegate.swift in Sources */,
 				CE7C84CD2667EC40003FC3D9 /* Product.swift in Sources */,
+				CE0FC132266D31CC00F499A8 /* DoubleExtension.swift in Sources */,
 				CE35D5E42667F97F0067CA99 /* ApiModels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
