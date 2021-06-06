@@ -17,6 +17,11 @@ class TransactionTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
+    override func prepareForReuse() {
+        transactionAmountLabel.text = ""
+        transactionAmountLabel.font = UIFont.systemFont(ofSize: 20)
+    }
+    
     public func generateCell(amount: String, finalCell: Bool = false) {
         transactionAmountLabel.text = amount
         
