@@ -18,38 +18,28 @@ class ProductsListPresenter {
         apiService.fetchTransactions() { result in
             switch result {
             case .success(let data):
-                self.getConversionRates() { conversionRates in
-                    if (conversionRates.count > 0) {
-                        for transaction in data {
-                            let currentProduct = productsList.filter({$0.id == transaction.productId}).first
-                            let amount = CurrencyService.parseTransactionAmount(amount: transaction.amount, currencyFrom: transaction.currency, conversionRates: conversionRates)
-                            if let safeCurrentProduct = currentProduct {
-                                safeCurrentProduct.transactions.append(amount)
-                            } else {
-                                productsList.append(Product(id: transaction.productId, transactions: [amount]))
+                self.apiService.fetchConversionRates() { conversionsResult in
+                    switch conversionsResult {
+                        case .success(let conversionRates):
+                            for transaction in data {
+                                let currentProduct = productsList.filter({$0.id == transaction.productId}).first
+                                let amount = CurrencyService.parseTransactionAmount(amount: transaction.amount, currencyFrom: transaction.currency, conversionRates: conversionRates)
+                                if let safeCurrentProduct = currentProduct {
+                                    safeCurrentProduct.transactions.append(amount)
+                                } else {
+                                    productsList.append(Product(id: transaction.productId, transactions: [amount]))
+                                }
                             }
-                        }
-                        self.productsListViewDelegate?.hideLoadingView()
-                        self.productsListViewDelegate?.showProductsList(products: productsList)
-                    } else {
-                        self.productsListViewDelegate?.hideLoadingView()
-                        self.productsListViewDelegate?.showErrorView(error: GNBError(.emptyData))
+                            self.productsListViewDelegate?.hideLoadingView()
+                            self.productsListViewDelegate?.showProductsList(products: productsList)
+                        case .failure(let error):
+                            self.productsListViewDelegate?.hideLoadingView()
+                            self.productsListViewDelegate?.showErrorView(error: error)
                     }
                 }
             case .failure(let error):
                 self.productsListViewDelegate?.hideLoadingView()
                 self.productsListViewDelegate?.showErrorView(error: error)
-            }
-        }
-    }
-    
-    private func getConversionRates(completion: @escaping ([ConversionRate]) -> Void) {
-        apiService.fetchConversionRates() { result in
-            switch result {
-            case .success(let data):
-                completion(data)
-            case .failure:
-                completion([])
             }
         }
     }
