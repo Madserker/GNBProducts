@@ -13,6 +13,9 @@ class ProductTableViewCell: UITableViewCell {
     private func setupUI() {
         generalView.layer.cornerRadius = 8
         generalView.layer.masksToBounds = true
+        generalView.backgroundColor = .lightGray
+        
+        productIdLabel.font = UIFont.systemFont(ofSize: 20)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -1,10 +1,3 @@
-//
-//  TransactionTableViewCell.swift
-//  GNBProducts
-//
-//  Created by Sergi Hurtado on 05/06/2021.
-//
-
 import UIKit
 
 class TransactionTableViewCell: UITableViewCell {
@@ -13,17 +6,22 @@ class TransactionTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        setupUI()
+    }
+    
+    private func setupUI() {
+        transactionAmountLabel.font = UIFont.systemFont(ofSize: 20)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the v<iew for the selected state
     }
     
-    public func generateCell(amount: String) {
+    public func generateCell(amount: String, finalCell: Bool = false) {
         transactionAmountLabel.text = amount
+        
+        if finalCell {
+            transactionAmountLabel.font = UIFont.systemFont(ofSize: 26)
+        }
     }
-    
 }

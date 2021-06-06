@@ -33,18 +33,12 @@ class ProductsListPresenter {
                         self.productsListViewDelegate?.showProductsList(products: productsList)
                     } else {
                         self.productsListViewDelegate?.hideLoadingView()
-                        self.productsListViewDelegate?.showErrorView()
+                        self.productsListViewDelegate?.showErrorView(error: GNBError(.emptyData))
                     }
                 }
             case .failure(let error):
-                switch error.type {
-                case .emptyData:
-                    self.productsListViewDelegate?.hideLoadingView()
-                    self.productsListViewDelegate?.showErrorView()
-                default:
-                    self.productsListViewDelegate?.hideLoadingView()
-                    self.productsListViewDelegate?.showErrorView()
-                }
+                self.productsListViewDelegate?.hideLoadingView()
+                self.productsListViewDelegate?.showErrorView(error: error)
             }
         }
     }

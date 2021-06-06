@@ -50,8 +50,15 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OEo-9a-Mbo" userLabel="BottomView">
                                 <rect key="frame" x="0.0" y="89.5" width="414" height="806.5"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hw5-YP-qYk" userLabel="Divider">
+                                        <rect key="frame" x="15" y="0.0" width="384" height="1"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="MlI-zn-ESp"/>
+                                        </constraints>
+                                    </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4kn-aT-TIZ">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="806.5"/>
+                                        <rect key="frame" x="0.0" y="1" width="414" height="805.5"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="SCS-bw-g2s">
@@ -72,14 +79,25 @@
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ERROR LABEL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="01d-Ne-0Ai">
+                                        <rect key="frame" x="15" y="393" width="384" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="4kn-aT-TIZ" firstAttribute="top" secondItem="hw5-YP-qYk" secondAttribute="bottom" id="20U-BN-pP6"/>
                                     <constraint firstAttribute="bottom" secondItem="4kn-aT-TIZ" secondAttribute="bottom" id="AmZ-hq-jkD"/>
-                                    <constraint firstItem="4kn-aT-TIZ" firstAttribute="top" secondItem="OEo-9a-Mbo" secondAttribute="top" id="Tbe-cG-f0N"/>
+                                    <constraint firstItem="hw5-YP-qYk" firstAttribute="top" secondItem="OEo-9a-Mbo" secondAttribute="top" id="Dv5-v5-Wxb"/>
+                                    <constraint firstItem="hw5-YP-qYk" firstAttribute="leading" secondItem="OEo-9a-Mbo" secondAttribute="leading" constant="15" id="QZ2-gZ-nzh"/>
                                     <constraint firstItem="4kn-aT-TIZ" firstAttribute="leading" secondItem="OEo-9a-Mbo" secondAttribute="leading" id="Ufy-1T-wGr"/>
-                                    <constraint firstAttribute="bottom" secondItem="4kn-aT-TIZ" secondAttribute="bottom" id="ciI-PM-Lqy"/>
+                                    <constraint firstAttribute="trailing" secondItem="hw5-YP-qYk" secondAttribute="trailing" constant="15" id="bzr-Da-YqS"/>
                                     <constraint firstAttribute="trailing" secondItem="4kn-aT-TIZ" secondAttribute="trailing" id="lSD-pm-mbW"/>
-                                    <constraint firstItem="4kn-aT-TIZ" firstAttribute="top" secondItem="OEo-9a-Mbo" secondAttribute="top" id="zaN-I0-17H"/>
+                                    <constraint firstItem="01d-Ne-0Ai" firstAttribute="centerY" secondItem="OEo-9a-Mbo" secondAttribute="centerY" id="qBF-pv-2vv"/>
+                                    <constraint firstItem="01d-Ne-0Ai" firstAttribute="leading" secondItem="OEo-9a-Mbo" secondAttribute="leading" constant="15" id="qwd-h0-iSG"/>
+                                    <constraint firstItem="01d-Ne-0Ai" firstAttribute="centerX" secondItem="OEo-9a-Mbo" secondAttribute="centerX" id="tvv-9R-HGz"/>
+                                    <constraint firstAttribute="trailing" secondItem="01d-Ne-0Ai" secondAttribute="trailing" constant="15" id="uY1-By-lZe"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -97,12 +115,14 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="errorLabel" destination="01d-Ne-0Ai" id="QeK-Ej-Dit"/>
                         <outlet property="productsListTableView" destination="4kn-aT-TIZ" id="r67-1l-OIc"/>
+                        <outlet property="productsListTitleLabel" destination="HIg-MS-aU9" id="pe9-WM-5jK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="142" y="129"/>
+            <point key="canvasLocation" x="140.57971014492756" y="128.57142857142856"/>
         </scene>
     </scenes>
     <resources>

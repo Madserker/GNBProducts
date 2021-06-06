@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  GNBProducts
-//
-//  Created by Sergi Hurtado on 02/06/2021.
-//
-
 import UIKit
 
 @main

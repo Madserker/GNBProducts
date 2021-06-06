@@ -3,18 +3,18 @@ import UIKit
 protocol ProductsListViewDelegate: NSObjectProtocol {
     func showLoadingView()
     func hideLoadingView()
-    func showErrorView()
+    func showErrorView(error: GNBError)
     func showProductsList(products: [Product])
 }
 
 struct ProductsListSection {
     let title: String
-    let options: [Double]
+    let transactions: [Double]
     var isOpened: Bool
     
-    init(title: String, options: [Double], isOpened: Bool = false) {
+    init(title: String, transactions: [Double], isOpened: Bool = false) {
         self.title = title
-        self.options = options
+        self.transactions = transactions
         self.isOpened = isOpened
     }
 }
@@ -22,6 +22,8 @@ struct ProductsListSection {
 class ProductsListViewController: UIViewController {
 
     @IBOutlet weak var productsListTableView: UITableView!
+    @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var productsListTitleLabel: UILabel!
     
     private let productsListPresenter = ProductsListPresenter()
     
@@ -32,11 +34,21 @@ class ProductsListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupUI()
         setupSpinner()
         setupTableView()
         
         productsListPresenter.setViewDelegate(productsListViewDelegate: self)
         productsListPresenter.getProductsList()
+    }
+    
+    private func setupUI() {
+        errorLabel.isHidden = true
+        errorLabel.font = UIFont.systemFont(ofSize: 28)
+        errorLabel.textColor = .gray
+        
+        productsListTitleLabel.font = UIFont.systemFont(ofSize: 32)
+        productsListTitleLabel.textColor = .black
     }
     
     private func setupSpinner() {
@@ -65,30 +77,41 @@ extension ProductsListViewController: ProductsListViewDelegate {
         sections = products.map{
             ProductsListSection(
                 title: $0.id,
-                options: $0.transactions
+                transactions: $0.transactions
             )
         }
         DispatchQueue.main.async {
+            self.productsListTableView.isHidden = false
+            self.errorLabel.isHidden = true
+
             self.productsListTableView.reloadData()
         }
     }
     
     func showLoadingView() {
-        // ..
         DispatchQueue.main.async {
             self.spinner.startAnimating()
         }
     }
     
     func hideLoadingView() {
-        // ..
         DispatchQueue.main.async {
             self.spinner.stopAnimating()
         }
     }
     
-    func showErrorView() {
-        // ..
+    func showErrorView(error: GNBError) {
+        DispatchQueue.main.async {
+            self.productsListTableView.isHidden = true
+            self.errorLabel.isHidden = false
+            
+            switch error.type {
+                case .emptyData:
+                    self.errorLabel.text = "No hemos encontrado ningun producto."
+                default:
+                    self.errorLabel.text = "Algo ha ido mal."
+            }
+        }
     }
 }
 
@@ -101,7 +124,7 @@ extension ProductsListViewController: UITableViewDelegate, UITableViewDataSource
         let section = sections[section]
         
         if section.isOpened {
-            return section.options.count + 2
+            return section.transactions.count + 2
         } else {
             return 1
         }
@@ -116,15 +139,15 @@ extension ProductsListViewController: UITableViewDelegate, UITableViewDataSource
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionTableViewCell", for: indexPath) as? TransactionTableViewCell
 
-            if indexPath.row - 1 == sections[indexPath.section].options.count {
+            if indexPath.row - 1 == sections[indexPath.section].transactions.count {
                 var total: Double = 0.0
-                for amount in sections[indexPath.section].options {
+                for amount in sections[indexPath.section].transactions {
                     total += amount
                 }
                 let roundedTotal = Double(round(100*total)/100)
-                cell?.generateCell(amount: "TOTAL: \(roundedTotal) \(CurrencyService.selectedCurrency)")
+                cell?.generateCell(amount: "TOTAL: \(roundedTotal) \(CurrencyService.selectedCurrency)", finalCell: true)
             } else {
-                let roundedAmount = Double(round(100*sections[indexPath.section].options[indexPath.row - 1])/100)
+                let roundedAmount = Double(round(100*sections[indexPath.section].transactions[indexPath.row - 1])/100)
                 cell?.generateCell(amount: "+ \(roundedAmount) \(CurrencyService.selectedCurrency)")
             }
             
@@ -142,7 +165,7 @@ extension ProductsListViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
             return 50
-        } else if indexPath.row - 1 == sections[indexPath.section].options.count {
+        } else if indexPath.row - 1 == sections[indexPath.section].transactions.count {
             return 45
         } else {
             return 20

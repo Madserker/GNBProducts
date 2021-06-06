@@ -1,10 +1,3 @@
-//
-//  SceneDelegate.swift
-//  GNBProducts
-//
-//  Created by Sergi Hurtado on 02/06/2021.
-//
-
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
